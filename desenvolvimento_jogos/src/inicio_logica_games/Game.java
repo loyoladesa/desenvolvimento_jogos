@@ -10,6 +10,7 @@ public class Game implements Runnable{
 	private ArrayList<Entidade> entidades;
 	
 	public Game() {
+		this.entidades = new ArrayList<>();
 		this.entidades.add(new Entidade());
 		
 		for(int i=0;i<entidades.size();i++) {
@@ -20,9 +21,7 @@ public class Game implements Runnable{
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Game game = new Game();
-		game.start();
-		
-		
+		game.start();		
 	}
 	
 	public synchronized void start() {
@@ -32,10 +31,12 @@ public class Game implements Runnable{
 	}
 	
 	public void update() {
+		//Atualizar o jogo
 		System.out.println("update");
 	}
 	
 	public void render() {
+		//Renderizar o jogo
 		System.out.println("render");
 	}
 
@@ -44,11 +45,12 @@ public class Game implements Runnable{
 		// TODO Auto-generated method stub
 		while(isRunning) {
 			update();
-			render();
-			
+			render();			
 			/*
-			 * Thread.sleep(1000);
+			 * try { Thread.sleep(1000); }catch (Exception e) { e.printStackTrace(); }
 			 */
+			  
+			 
 		}
 	}
 
